@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Виртуальное кафе</title>
+</head>
+<body>
+    <h1>Добро пожаловать в виртуальное кафе!</h1>
+    <h2>Пользователи:</h2>
+    <ul>
+        {% for user in users %}
+            <li>{{ user.username }}
+                {% if user.coffee_status %}
+                    (Пьет кофе)
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'order_coffee' %}">Заказать кофе</a>
+    <a href="{% url 'drink_coffee' %}">Выпить кофе</a>
+    <a href="{% url 'exit_cafe' %}">Выйти из кафе</a>
+</body>
+</html>
+
